@@ -17,7 +17,7 @@ const Home = (props) => {
         comuniData,
     } = props;
 
-    const [regioneValue, setregioneValue] = useState(options[0].value);
+    const [regioneValue, setregioneValue] = useState([]);
 
 
     useEffect(() => {
