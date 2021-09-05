@@ -1,0 +1,2 @@
+export const SET_DATA_TREEDOM = 'SET_DATA_TREEDOM';
+export const GET_DATA_TREEDOM = 'GET_DATA_TREEDOM';
