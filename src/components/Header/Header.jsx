@@ -10,7 +10,7 @@ const  Header = () => {
           <header className="tr-navbar-header">
               <div className="tr-navbar-header__left">
                   <a href="/it/" className="tr-logo">
-                      <img src={require('../../assets/image/treedom.png')} />
+                      <img src={require('../../assets/image/treedom.png')} alt="logo-treedom"/>
                   </a>
               </div>
           </header>
