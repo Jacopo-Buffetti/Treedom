@@ -1,5 +1,5 @@
-import { creatBrowserHistory, createMemoryHistory } from 'history';
+import { createBrowserHistory, createMemoryHistory } from 'history';
 
-const RouterHistory = typeof window !== 'undefined' ? creatBrowserHistory : createMemoryHistory;
+const RouterHistory = typeof window !== 'undefined' ? createBrowserHistory : createMemoryHistory;
 
 export default RouterHistory;
