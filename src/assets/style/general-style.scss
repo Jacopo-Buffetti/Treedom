@@ -1,0 +1,145 @@
+@import "color";
+@import "mixins";
+
+$fontTitle: 'Montserrat', sans-serif;
+$fontPar: 'Roboto', sans-serif;
+
+*{
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+
+
+  body {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+
+
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    //FONT
+    h1, h2, h3, h4, h5, h6, button {
+      font-family: $fontTitle;
+    }
+
+    p, li, span, a, label, input, select, textarea {
+      font-family: $fontPar;
+      color: $font;
+    }
+    
+    .container-button {
+      text-align: center;
+
+      .button-next {
+        background-color: #fb9b2d;
+        background: $red;
+        background: -webkit-linear-gradient(
+                        0deg, $red, $yellow 43%, $yellow 57%, $red);
+        background: linear-gradient(
+                        90deg, $red, $yellow 43%, $yellow 57%, $red);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        text-shadow: 0 0 4px rgba(251, 71, 75, 0);
+        transition: background-size .2s ease-in-out, background-position .3s ease-in-out, text-shadow .2s ease-in-out;
+        width: 100px;
+        font-weight: bold;
+        color: $white;
+        border: 0 none;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+
+        &:hover {
+          box-shadow: 0 0 0 2px white, 0 0 0 3px $red;
+        }
+      }
+
+      .button-previous {
+        @extend .button-next;
+        background-color: $lightGreen;
+        background: $darkGreen;
+
+        background: linear-gradient(
+                        90deg, $lightGreen -103.59%, $green 14.38%, $darkGreen 105.93%);
+
+        background: -webkit-linear-gradient(
+                        0deg, $lightGreen -103.59%, $green 14.38%, $darkGreen 105.93%);
+
+        &:hover {
+          box-shadow: 0 0 0 2px white, 0 0 0 3px $darkGreen;
+        }
+      }
+    }
+
+
+    /*inputs textarea select*/
+    .fieldsetStep {
+      border: none;
+
+      input, .fieldsetStep textarea, select {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 0px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 13px;
+
+        &:focus {
+          -moz-box-shadow: none !important;
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+          border: 1px solid $red;
+          outline-width: 0;
+          transition: All 0.5s ease-in;
+          -webkit-transition: All 0.5s ease-in;
+          -moz-transition: All 0.5s ease-in;
+          -o-transition: All 0.5s ease-in;
+        }
+      }
+
+      .fs-title {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #2C3E50;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .fs-subtitle {
+        font-weight: normal;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .action-button-previous {
+        width: 100px;
+        background: #C5C5F1;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+
+        &:hover, &:focus {
+          box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+        }
+      }
+    }
+  }
+}

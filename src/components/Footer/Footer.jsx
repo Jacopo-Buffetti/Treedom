@@ -7,7 +7,6 @@ const Footer = () => {
     return (
         <div className={"footer"}>
             <div className={"container"}>
-                <p> <i className="far fa-copyright"></i> all rights are reserved and are to be considered the property of Jacopo Buffetti</p>
             </div>
         </div>
     )
