@@ -11,30 +11,28 @@ const FieldsetStep1 = (props) => {
     name,
     type,
     formValue,
+    placeholder,
   } = props;
-
-  const [value, setValue] = useState('');
+  const [formatValue, setFormatValue] = useState('');
 
   useEffect(() => {
-    setValue(formValue[name]);
+    setFormatValue(formValue[name] || '');
   }, [formValue[name]])
 
   const changeValue = (e) => {
+    setFormatValue(e.target.value);
     handleSetValue({
       ...formValue,
       [name]: e.target.value,
     });
-    setValue(e.target.value);
   };
-
-
 
   return (
     <input
       type={type}
       name={name}
-      placeholder="Nome"
-      value={value}
+      placeholder={placeholder}
+      value={formatValue}
       onChange={changeValue}
     />
   )
