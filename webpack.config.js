@@ -18,6 +18,7 @@ module.exports = [{
   mode: 'development',
   entry: ["@babel/polyfill", "./src/index.jsx"],
   devServer: {
+    bonjour: true,
     static: {
       directory: path.join(__dirname, 'src'),
     },
@@ -26,6 +27,9 @@ module.exports = [{
     port: 5000,
     historyApiFallback: true,
     open: devMode,
+    client: {
+      logging: 'none',
+    },
   },
   output: {
     publicPath: ASSET_PATH,
@@ -72,18 +76,6 @@ module.exports = [{
           },
           {
             loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  [
-                    'autoprefixer',
-                    {
-                      // Options
-                    },
-                  ],
-                ],
-              },
-            },
           },
         ],
       },
