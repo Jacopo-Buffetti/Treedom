@@ -140,6 +140,11 @@ html {
           box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
         }
       }
+
+      .error-field {
+        color: $red;
+        margin-bottom: 10px;
+      }
     }
   }
 }

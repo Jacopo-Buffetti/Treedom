@@ -1,16 +1,14 @@
 import React from 'react';
 import { compose } from 'redux';
 import {withRouter} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Button = (props) => {
   const {
     className,
-    errorValue,
     label,
     onClick,
-    name,
     type,
-    value,
   } = props;
 
   console.log(label)
@@ -21,15 +19,24 @@ const Button = (props) => {
       <button
         className={className}
         onClick={onClick}
-        name={name}
         type={type}
-        value={value}
       >
         {label}
       </button>
     </>
-)
+  )
 }
+
+Button.propTypes = {
+  className: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+};
+
+Button.defaultProps = {
+  className: '',
+};
 
 export default compose(
   withRouter,

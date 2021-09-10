@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";
 import get from 'lodash/get';
 import { setValue } from '../../actions/FormDataAction';
+import PropTypes from "prop-types";
 
 const Input = (props) => {
   const {
@@ -29,6 +30,8 @@ const Input = (props) => {
     });
   };
 
+  console.log(errorValue)
+
   return (
     <>
       <input
@@ -40,7 +43,7 @@ const Input = (props) => {
       />
       {
         errorValue[name] && (
-          <p>{errorValue[name]}</p>
+          <p className="error-field">{errorValue[name]}</p>
         )
       }
     </>
@@ -55,6 +58,19 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleSetValue: bindActionCreators(setValue, dispatch),
 });
+
+Input.propTypes = {
+  errorValue: PropTypes.object.isRequired,
+  handleSetValue: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  formValue: PropTypes.object.isRequired,
+  placeholder: PropTypes.string,
+};
+
+Input.defaultProps = {
+  placeholder: '',
+};
 
 export default compose(
   withRouter,

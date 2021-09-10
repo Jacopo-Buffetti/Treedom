@@ -84,10 +84,10 @@
       <textMaps />
     </LinkMapSettings>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/src/components/FieldsetStep/FieldsetStep1.scss" />
+  </component>
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
-  </component>
-  <component name="WebPackConfiguration">
-    <option name="mode" value="DISABLED" />
   </component>
 </project>

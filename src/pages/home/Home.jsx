@@ -5,9 +5,7 @@ import {compose} from "redux";
 import CardFormStep from "../../components/CardFormStep/CardFormStep";
 
 
-const Home = (props) => {
-
-
+const Home = () => {
 
   return (
     <>
@@ -16,7 +14,6 @@ const Home = (props) => {
 
   );
 };
-
 
 export default compose(
   withRouter,

@@ -6,7 +6,7 @@ import {getDataComuni, getDataProvince, getDataRegioni} from "../../actions/Tree
 import {connect} from "react-redux";
 import Select from "../Form/Select";
 import Input from "../Form/Input";
-import Button from "../Form/Button";
+import PropTypes from "prop-types";
 
 const FieldsetStep2 = (props) => {
   const {
@@ -46,6 +46,10 @@ const FieldsetStep2 = (props) => {
     handleGetDataComuni(data);
   }
 
+  console.log(handleGetDataComuni,
+    handleGetDataRegioni,
+    handleGetDataProvince,)
+
   return (
     <fieldset className="fieldsetStep">
       <h2 className="fs-title">Informazioni indirizzo</h2>
@@ -73,10 +77,6 @@ const FieldsetStep2 = (props) => {
       />
       <Input type="number" name="cap" placeholder="Cap"/>
       <Input type="text" name="indirizzo" placeholder="Indirizzo e numero civico"/>
-      <div className="container-button">
-        <Button type="button" name="avanti" className="button-previous" value="Previous" label="Indietro" />
-        <Button type="button" name="avanti" className="button-next" value="Next" label="Avanti" />
-      </div>
     </fieldset>
   )
 }
@@ -92,6 +92,15 @@ const mapDispatchToProps = (dispatch) => ({
   handleGetDataProvince: bindActionCreators(getDataProvince, dispatch),
   handleGetDataComuni: bindActionCreators(getDataComuni, dispatch),
 });
+
+FieldsetStep2.propTypes = {
+  regioniData: PropTypes.array.isRequired,
+  provinceData: PropTypes.array.isRequired,
+  comuniData: PropTypes.array.isRequired,
+  handleGetDataComuni: PropTypes.func.isRequired,
+  handleGetDataRegioni: PropTypes.func.isRequired,
+  handleGetDataProvince: PropTypes.func.isRequired,
+};
 
 
 export default compose(

@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 const Home = React.lazy(() => import('./pages/home/Home'));
@@ -17,7 +16,6 @@ function App() {
                     component={Home}
           />
         </Switch>
-          <Footer />
       </Suspense>
     );
 }
