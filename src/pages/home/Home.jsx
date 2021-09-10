@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { compose } from 'redux';
 import './home.scss';
+import {compose} from "redux";
+import CardFormStep from "../../components/CardFormStep/CardFormStep";
 
 
-const Home = (props) => {
-    const {
-    } = props;
+const Home = () => {
 
+  return (
+    <>
+      <CardFormStep />
+    </>
 
-
-    return (
-        <div className={`main-home main-page`}>
-
-        </div>
-    );
+  );
 };
 
 export default compose(
-    withRouter
+  withRouter,
 )(Home);

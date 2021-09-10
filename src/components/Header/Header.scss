@@ -1,0 +1,12 @@
+@import "src/assets/style/general-style";
+
+header{
+  display: flex;
+  max-height: 86px;
+  box-shadow: 0 5px 20px rgba(72, 93, 106, 0.1);
+  padding: 3px;
+
+  .tr-logo{
+    color: $tree;
+  }
+}

@@ -1,0 +1,24 @@
+@import "src/assets/style/general-style";
+
+
+/*form styles*/
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+.card-container{
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+  box-shadow: 0 3px 13px rgba(47, 80, 23, 0.15);
+  opacity: 1;
+  transition: opacity .3s linear;
+  /*stacking fieldsets above each other*/
+  position: relative;
+}

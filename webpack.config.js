@@ -18,6 +18,7 @@ module.exports = [{
   mode: 'development',
   entry: ["@babel/polyfill", "./src/index.jsx"],
   devServer: {
+    bonjour: true,
     static: {
       directory: path.join(__dirname, 'src'),
     },
@@ -26,14 +27,17 @@ module.exports = [{
     port: 5000,
     historyApiFallback: true,
     open: devMode,
+    client: {
+      logging: 'none',
+    },
   },
   output: {
     publicPath: ASSET_PATH,
     path: BUILD_DIR,
     filename: `${subFolder}js/[name].bundle.js`,
-    chunkFilename: `${subFolder}js/[name].[hash].js`,
-    hotUpdateChunkFilename: 'hot/hot-update.[hash].js',
-    hotUpdateMainFilename: 'hot/hot-update.[hash].json',
+    chunkFilename: `${subFolder}js/[name].[fullhash].js`,
+    hotUpdateChunkFilename: 'hot/hot-update.[fullhash].js',
+    hotUpdateMainFilename: 'hot/hot-update.[fullhash].json',
     globalObject: 'this'
   },
   //console log personalizzato
@@ -76,7 +80,7 @@ module.exports = [{
               postcssOptions: {
                 plugins: [
                   [
-                    'autoprefixer',
+                    "autoprefixer",
                     {
                       // Options
                     },
@@ -155,8 +159,8 @@ module.exports = [{
     new MiniCssExtractPlugin({
 // Options similar to the same options in webpackOptions.output
 // both options are optional
-      filename: devMode ? `${subFolder}css/[name].css` : `${subFolder}css/[name].[hash].css`,
-      chunkFilename: devMode ? `${subFolder}css/[id].css` : `${subFolder}css/[id].[hash].css`,
+      filename: devMode ? `${subFolder}css/[name].css` : `${subFolder}css/[name].[fullhash].css`,
+      chunkFilename: devMode ? `${subFolder}css/[id].css` : `${subFolder}css/[id].[fullhash].css`,
     }),
     new CleanWebpackPlugin({
       dry: false,
@@ -172,7 +176,7 @@ module.exports = [{
 // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       chunksSortMode: 'none',
-      hash: true,
+      fullhash: true,
       filename: `./${subFolder}index.html`,
       template: './public/index.html',
       minify: {
