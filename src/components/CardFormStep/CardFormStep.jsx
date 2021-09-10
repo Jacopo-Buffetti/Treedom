@@ -23,11 +23,11 @@ const CardFormStep = () => {
             <Progressbar />
             <div className="card-container">
               {
-                (step1) &&(
+                (step2) &&(
                   <FieldsetStep1 />
                 )}
               {
-                (step2) &&(
+                (step1) &&(
                   <FieldsetStep2 />
                 )}
               {

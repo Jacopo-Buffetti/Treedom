@@ -1,48 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";
 import get from 'lodash/get';
 import { setValue } from '../../actions/FormDataAction';
 
-const Input = (props) => {
+const Select = (props) => {
   const {
-    errorValue,
     handleSetValue,
-    name,
-    type,
     formValue,
+    name,
+    onChange,
+    optionLabelDefault,
+    optionValue,
     placeholder,
   } = props;
   const [formatValue, setFormatValue] = useState('');
 
-  useEffect(() => {
-    setFormatValue(formValue[name] || '');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formValue[name]])
-
-  const changeValue = (e) => {
-    setFormatValue(e.target.value);
+  const changeValue = (val) => {
+    console.log(val)
+    setFormatValue(val);
     handleSetValue({
       ...formValue,
-      [name]: e.target.value,
+      [name]: val,
     });
+    if (onChange) {
+      onChange(val);
+    }
   };
+
+  console.log(optionValue)
 
   return (
     <>
-      <input
-        type={type}
-        name={name}
+      <select
+        onChange={(e) => {changeValue(e.target.value);}}
         placeholder={placeholder}
-        value={formatValue}
-        onChange={changeValue}
-      />
-      {
-        errorValue[name] && (
-          <p>{errorValue[name]}</p>
-        )
-      }
+        defaultValue={formatValue}
+
+      >
+        <option value="" disabled >{optionLabelDefault}</option>
+        {optionValue.map((reg, i )=>
+          <option key={i.toString()} value={reg}>{reg.toUpperCase()}</option>
+        )};
+      </select>
     </>
   )
 }
@@ -59,4 +60,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(Input);
+)(Select);

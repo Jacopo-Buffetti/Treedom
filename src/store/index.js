@@ -3,6 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 import { RoutReducer } from '../reducer';
 import TreedomDataMiddleware from '../middlewares/TreedomlDataMiddleware';
+import FormMiddleware from '../middlewares/FormMiddleware';
 
 const enhancers = [];
 const middlewares = [thunkMiddleware];
@@ -12,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const composerEnhancers = compose(
-    applyMiddleware(...middlewares, TreedomDataMiddleware, TreedomDataMiddleware),
+    applyMiddleware(...middlewares, TreedomDataMiddleware, FormMiddleware),
     ...enhancers,
 );
 

@@ -10,6 +10,7 @@ import {
 } from "../actions/types/TreedomDataType";
 
 const checkRegProvCom = (store) => (next) => (action) => {
+    console.log('qui entro sicuro ACTION', action);
     switch (action.type) {
         case GET_DATA_REGIONI:
             next(action);
@@ -24,16 +25,25 @@ const checkRegProvCom = (store) => (next) => (action) => {
             if(regioneValue) {
             axios.get(`https://comuni-ita.herokuapp.com/api/province/${regioneValue.toLowerCase()}`)
               .then((response) => {
-                  store.dispatch({ type: SET_DATA_PROVINCE, payload: get(response, 'data', []) });
-              });}
+                  let prov = [];
+                  get(response, 'data', []).forEach((reg) => {
+                      prov.push(reg.nome)
+                  })
+                  store.dispatch({ type: SET_DATA_PROVINCE, payload: prov });
+              });
+            }
             break;
         case GET_DATA_COMUNI:
             next(action);
             const provinceValue = get(action, 'payload.provinceValue', '');
             if(provinceValue) {
-                axios.get(`https://comuni-ita.herokuapp.com/api/comuni/provincia/${provinceValue}`)
+                axios.get(`https://comuni-ita.herokuapp.com/api/comuni/provincia/${provinceValue.toLowerCase()}`)
                   .then((response) => {
-                      store.dispatch({type: SET_DATA_COMUNI, payload: get(response, 'data', [])});
+                      let com = [];
+                      get(response, 'data', []).forEach((reg) => {
+                          com.push(reg.nome)
+                      })
+                      store.dispatch({ type: SET_DATA_COMUNI, payload: com });
                   });
             }
             break;
